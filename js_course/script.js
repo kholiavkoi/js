@@ -1,54 +1,23 @@
+// a();
 
-// Imperative
-// var foo = [11, 2, 4, 22, 80, 5];
-
-// function sum() {
-//     var i,
-//         size = foo.length,
-//         result = 0;
-        
-//     for (i = 0; i < size; i += 1){
-//         result += foo[i];
-//     }
-
-//     return result;
+// var a = function() {
+//     console.log('hahaha')
 // }
 
-// console.log(sum())
-
-
-// Declarative
-
-// function sum() {
-// return foo.reduce(function(acc, number){
-//         return acc + number
-//     }, 0)
+// function Parent() {
+//     console.log(this);
 // }
 
-// console.log(sum());
+// var parent = new Parent();
 
-// var str = 'rotor';
+// console.log(parent);
+console.log(a);
+var a = 4;
 
-// function palindrome() {
-//     return str.split('').reverse().join('') === str;
-// }
-// console.log(palindrome());
-
-// var user = {
-//     name: 'Bob',
-//     surname: 'Bobson',
-//     age: 30,
-// }
-//     clone = {},
-//     prop;
-
-// for (var prop in user) {
-//     if(user.hasOwnProperty(prop)) {
-//         clone[prop] = user[prop];
-//     }
+// function fn() {
+//     console.log(a);
+//     var a = 10;
+//     console.log(a);
 // }
 
-// console.log(user, clone)
-
-// var clone = Object.assign({}, user)
-// console.log(user, clone)
+// fn();
