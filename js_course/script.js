@@ -1,8 +1,8 @@
-// a();
+a();
 
-// var a = function() {
-//     console.log('hahaha')
-// }
+var a = function() {
+    console.log("hahaha");
+};
 
 // function Parent() {
 //     console.log(this);
