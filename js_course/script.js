@@ -11,8 +11,8 @@
 // var parent = new Parent();
 
 // console.log(parent);
-console.log(a);
-var a = 4;
+// console.log(a);
+// var a = 4;
 
 // function fn() {
 //     console.log(a);
