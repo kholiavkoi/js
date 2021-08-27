@@ -10,7 +10,7 @@ container.addEventListener('click', function(event) {
 
 //function hidden/not hidden
 
-for (let li of tree.querySelectorAll('li')) {
+for (let li of tree.querySelectorAll('li')) {  //его ж не объявляли нигде !!!
     let span = document.createElement('span');
     li.prepend(span);
     span.append(span.nextSibling); // поместить текстовый узел внутрь элемента <span>
@@ -43,12 +43,13 @@ function sortGrid(colNum, type) {
     let tbody = grid.querySelector('tbody')
     let rowsArray = Array.from(tbody.rows);
 
-    // compare(a, b) сравнивает две строки, нужен для сортировки ТУТ ВОПРОС!
+    // compare(a, b) сравнивает две строки, нужен для сортировки ТУТ ВОПРОС colNum!
     let compare;
 
     switch(type) {
         case 'number': 
             compare = function(rowA, rowB) {
+                console.log(rowA.cells)
                 console.log(rowA.cells[colNum]);
                 return rowA.cells[colNum].innerHTML - rowB.cells[colNum].innerHTML;
             };
@@ -105,3 +106,14 @@ document.addEventListener('mouseout', function(e){
         tooltipElem = null;   //зачем???
     }
 })
+
+
+
+
+const pane = document.querySelector('.pane')
+const paneStyle = getComputedStyle(pane, '::before')
+const fontSize = parseInt(paneStyle.fontSize)
+
+pane.style.marginLeft = 20 + 'px'
+
+console.log(fontSize);
