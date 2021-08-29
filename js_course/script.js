@@ -10,7 +10,7 @@ container.addEventListener('click', function(event) {
 
 //function hidden/not hidden
 
-for (let li of tree.querySelectorAll('li')) {  //его ж не объявляли нигде !!!
+for (let li of tree.querySelectorAll('li')) { //его ж не объявляли нигде !!!
     let span = document.createElement('span');
     li.prepend(span);
     span.append(span.nextSibling); // поместить текстовый узел внутрь элемента <span>
@@ -33,24 +33,26 @@ grid.addEventListener('click', function(event) {
 
     let th = event.target;
     // если ячейка TH, тогда сортировать
-      // cellIndex - это номер ячейки th:
-      //   0 для первого столбца
-      //   1 для второго и т.д.
+    // cellIndex - это номер ячейки th:
+    //   0 для первого столбца
+    //   1 для второго и т.д.
     sortGrid(th.cellIndex, th.dataset.type);
+    console.log(th.cellIndex);
 })
 
 function sortGrid(colNum, type) {
     let tbody = grid.querySelector('tbody')
     let rowsArray = Array.from(tbody.rows);
 
-    // compare(a, b) сравнивает две строки, нужен для сортировки ТУТ ВОПРОС colNum!
+    // compare(a, b) сравнивает две строки, нужен для сортировки 
     let compare;
 
-    switch(type) {
-        case 'number': 
+    switch (type) {
+        case 'number':
             compare = function(rowA, rowB) {
                 console.log(rowA.cells)
                 console.log(rowA.cells[colNum]);
+
                 return rowA.cells[colNum].innerHTML - rowB.cells[colNum].innerHTML;
             };
             break;
@@ -62,7 +64,7 @@ function sortGrid(colNum, type) {
     }
     // сортировка
     rowsArray.sort(compare);
-    
+
     tbody.append(...rowsArray);
 }
 
@@ -70,7 +72,7 @@ function sortGrid(colNum, type) {
 //tooltip example
 let tooltipElem;
 
-document.addEventListener('mouseover', function(event){
+document.addEventListener('mouseover', function(event) {
     let target = event.target;
 
     //если в data есть подсказка
@@ -91,7 +93,7 @@ document.addEventListener('mouseover', function(event){
     let top = coords.top - tooltipElem.offsetHeight - 5;
 
     // если подсказка не помещается сверху, то отображать её снизу
-    if (top < 0) { 
+    if (top < 0) {
         top = coords.top + target.offsetHeight + 5;
     }
 
@@ -100,20 +102,24 @@ document.addEventListener('mouseover', function(event){
 })
 
 
-document.addEventListener('mouseout', function(e){
+document.addEventListener('mouseout', function(e) {
     if (tooltipElem) {
         tooltipElem.remove();
-        tooltipElem = null;   //зачем???
+        tooltipElem = null; //зачем???
     }
 })
 
 
 
 
-const pane = document.querySelector('.pane')
-const paneStyle = getComputedStyle(pane, '::before')
-const fontSize = parseInt(paneStyle.fontSize)
+const link = document.querySelector('.newlink')
+const input = document.querySelector('.newinput')
 
-pane.style.marginLeft = 20 + 'px'
+console.log(link.hasAttribute('name'));
 
-console.log(fontSize);
+link.getAttribute('name')
+link.setAttribute('name', 'vasya')
+console.log(link.name);
+
+console.log(input.tagName);
+input.hidden = 'true'
