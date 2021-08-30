@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        img {
+            width: 100px;
+            height: 100px;
+        }
+        
+        .container {
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        
+        select,
+        input,
+        button {
+            padding: 8px;
+        }
+        
+        .out-1-source-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .array::before {
+            content: "[";
+            font-size: 80px;
+        }
+        
+        .array::after {
+            content: "]";
+            font-size: 80px;
+        }
+        
+        .array div {
+            position: relative;
+        }
+        
+        .array div span {
+            position: absolute;
+            left: 0;
+            right: 0;
+            display: block;
+            bottom: -20px;
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h3>Исходный массив</h3>
+
+        <div class="out-1-source"></div>
+        <div class="out-1-source-length"></div>
+        <div class="out-1-source-image array"></div>
+
+        <h3>Добавить элемент</h3>
+        <select class="array-element">
+            <option value="fox">fox</option>
+            <option value="bear">bear</option>
+            <option value="bembi">bembi</option>
+            <option value="cat">cat</option>
+            <option value="dino">dino</option>
+            <option value="elephant">elephant</option>
+            <option value="giraffe">giraffe</option>
+            <option value="hedgehog">hedgehog</option>
+            <option value="hippo">hippo</option>
+            <option value="humster">humster</option>
+            <option value="mouse">mouse</option>
+            <option value="panda">panda</option>
+            <option value="rabbit">rabbit</option>
+        </select>
+        <span>Индекс:</span>
+        <input type="number" class="array-index" value="3">
+        <button class="add-to-array">Добавить</button>
+
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
