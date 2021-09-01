@@ -4,7 +4,7 @@ function showArr(arr, elem) {
     let out = '';
     for (let i = 0; i < arr.length; i = i + 1) {
         if (arr[i] !== undefined) {
-            out += `<div><img src="img\/${arr[i]}.jpg"><span>${i}</span></div>`;
+            out += `<div><img src="img//${arr[i]}.jpg"><span>${i}</span></div>`;
         }
     }
     document.querySelector(elem).innerHTML = out;
@@ -17,11 +17,11 @@ showArr(animals, '.out-1-source-image')
 
 
 function addToArray() {
-    if (!Number.isInteger(+document.querySelector('.array-index').value)) {
+    let index = +document.querySelector('.array-index').value;
+    if (!Number.isInteger(index)) {
         alert('Только целые числа, алё');
         return false;
     };
-    let index = +document.querySelector('.array-index').value;
     if (index > 50) {
         alert('Дядя, узбагойся! Это слишком много!');
         return false;
@@ -30,7 +30,6 @@ function addToArray() {
         return false;
     }
     animals[index] = document.querySelector('.array-element').value;
-    console.log(animals);
     showArr(animals, '.out-1-source-image')
 }
 
