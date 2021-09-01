@@ -96,3 +96,45 @@
 //     console.log(typeText(70));
 //     document.querySelector('.new-div').innerHTML = typeText(20)
 // })
+
+
+// const person = {
+//     name: 'Iaroslav',
+//     age: 29,
+//     showInfo: function(job, phone) {
+//         console.group(`${this.name} info:`)
+//         console.log(`Name: ${this.name}`);
+//         console.log(`Age: ${this.age}`);
+//         console.log(`Job is ${job}`);
+//         console.log(`Phone is ${phone}`);
+//         console.groupEnd();
+//     }
+// }
+
+// person.showInfo()
+
+
+// const girl = {
+//     name: 'Christina',
+//     age: 24,
+// }
+
+// person.showInfo.bind(girl, 'manik', '093-457-10-06')()
+// person.showInfo.call(girl, 'manik', '093-457-10-06')
+// person.showInfo.apply(girl, ['manik', '093-457-10-06'])
+
+const array = [1, 2, 3, 4, 5];
+
+// function multiply(arr, n) {
+//     return arr.map(function (i) {
+//         return i * n;
+//     })
+// }
+
+Array.prototype.multiply = function (n) {
+    return this.map(function (i) {
+        return i * n;
+    });
+};
+
+console.log(array.multiply(2));
