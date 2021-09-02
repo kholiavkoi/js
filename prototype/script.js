@@ -12,6 +12,7 @@ Object.prototype.sayHello = function() {
 
 const girl = Object.create(person)
 
-girl.name = 'Kris'
+girl.sayHello()
+
 
 const str = new String('I`m String')
