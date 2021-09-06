@@ -79,8 +79,7 @@ console.log(a);
 
 const b = new Promise(function(resolve, reject) {
     setTimeout(function() {
-        a = 99;
-        resolve();
+        resolve(a = 99);
     }, 2000)
 })
 b.then(function() {
