@@ -61,8 +61,11 @@ const IndexedArray = new Proxy(Array, {
 				switch (prop) {
 					case 'push':
 						return item => {
-							arr[prop]
+							index[item.id] = item
+							arr[prop].call(arr, item)
 						}
+					case 'findById':
+						return id => index[id]
 					default:
 						return arr[prop]
 				}
