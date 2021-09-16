@@ -22,3 +22,6 @@ people.forEach(function (person) {
 })
 
 people.forEach(person => console.log(person))
+
+//Map
+const newPeople = people.map(person => {})
