@@ -1,9 +1,9 @@
 function _createModal(options) {
-	const modal = document.createElement('div')
-	modal.classList.add('vmodal')
-	modal.insertAdjacentHTML(
-		'afterbegin',
-		`
+    const modal = document.createElement('div')
+    modal.classList.add('vmodal')
+    modal.insertAdjacentHTML(
+        'afterbegin',
+        `
 			<div class="modal-overlay">
 				<div class="modal-window">
 					<div class="modal-header">
@@ -21,16 +21,30 @@ function _createModal(options) {
 				</div>
 			</div>
         `
-	)
-	document.body.appendChild(modal)
-	return modal
+    )
+    document.body.appendChild(modal)
+    return modal
 }
 
-$.modal = function (options) {
-	const $modal = _createModal(options)
-	return {
-		open() {},
-		close() {},
-		destroy() {},
-	}
+$.modal = function(options) {
+    const $modal = _createModal(options)
+    console.log($modal);
+    const ANIMATION_SPEED = 300
+    let closing = false
+    return {
+        open() {
+            //КАК ЭТО ПРОЧИТАТЬ???
+            !closing && $modal.classList.add('open')
+        },
+        close() {
+            closing = true
+            $modal.classList.remove('open')
+            $modal.classList.add('hide')
+            setTimeout(() => {
+                $modal.classList.remove('hide')
+                closing = false
+            }, ANIMATION_SPEED)
+        },
+        destroy() {},
+    }
 }
