@@ -66,12 +66,14 @@ $.modal = function(options) {
         },
         close() {
             closing = true
-            console.log(!closing)
             $modal.classList.remove('open')
             $modal.classList.add('hide')
             setTimeout(() => {
                 $modal.classList.remove('hide')
                 closing = false
+                if(typeof options.onClose === 'function') {
+                    options.onClose()
+                }
             }, ANIMATION_SPEED)
         },
 	}
