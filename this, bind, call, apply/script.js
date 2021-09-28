@@ -42,3 +42,39 @@ Array.prototype.multiply = function(n) {
 
 
 console.log(array.multiply(2));
+
+
+//This
+// 1. Default binding (дефолтная привязка)
+var a = 2
+
+function fn () {
+    console.log(this.a);  //this = window
+}
+
+fn()
+
+// 2. Implicit binding (непрямая привязка)
+
+var obj = {
+    a: 2,
+    fn: function() {
+        console.log(this.a);
+    }
+}
+
+obj.fn()
+
+// 3. Explicit binding (прямая привязка)
+
+var foo = {
+    a: 2
+}
+
+function func() {
+    console.log(this.a);
+}
+
+func.bind(foo)
+
+foo.func()
