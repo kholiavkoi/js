@@ -1,0 +1,49 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+    background: #cae7f3;;
+}
+
+#current-weather-details {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: #99e2fe;
+	padding: 30px 50px;
+	border-radius: 10px;
+    width: 300px;
+    box-shadow: 0px 0px 10px #424446;
+}
+
+#current-weather-details-list {
+	list-style: inside;
+    margin-bottom: 40px;
+}
+
+#current-weather-details-list li + li {
+	margin-top: 20px;
+}
+
+#weather-summary {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#get-weather {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .3s ease-out;
+}
+
+#get-weather:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 15px #424446;;
+}

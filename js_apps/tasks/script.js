@@ -1,3 +1,62 @@
+let arr = [4, 2, 10, 1, 4, 2]
+
+//Imperative
+function sum() {
+    let result = 0,
+        i,
+        size = arr.length;
+
+    for (i = 0; i < size; i += 1) {
+        result += arr[i];
+    }
+
+    return result;
+}
+console.log(sum());
+
+
+//Declarative
+function foo () {
+    return arr.reduce((prev, next) => prev + next, 0)
+}
+
+console.log(foo());
+
+//Palindrome 
+
+var str = 'rotOr'
+
+function palindrome (str) {
+    return str.toLowerCase().split('').reverse().join('') === str.toLowerCase()
+}
+
+console.log(palindrome(str));
+
+
+//Копировать объект
+//Imperative
+var obj = {
+    name: 'Bob',
+    surname: 'Bobson'
+}
+
+var clone = {};
+for (var prop in obj) {
+    if(obj.hasOwnProperty(prop)) {  //чтоб не залазить в прототип
+        clone[prop] = obj[prop];
+        
+    }
+    
+}
+
+console.log(clone, obj);  
+
+//Declarative
+var newObj = Object.assign({}, obj)
+
+console.log(newObj);
+
+
 //function remove
 
 var container = document.getElementById('container');
