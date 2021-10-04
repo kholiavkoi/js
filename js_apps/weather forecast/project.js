@@ -14,13 +14,20 @@ var city = getElement("current-city"),
     temperature = getElement("current-temperature"),
     windSpeed = getElement("current-wind-speed"),
     getWeatherButton = getElement("get-weather"),
-    weatherSummary = getElement("weather-summary"),
-    loading = false;
+    weatherSummary = getElement("weather-summary");
 
 function getWeatherCoordinates() {
     if(navigator.geolocation) {
+        getElement('loader').style.display = 'block';
+        getElement('loader').innerHTML = 'Getting location;';
         navigator.geolocation.getCurrentPosition(function(position) {
+            getElement('loader').innerHTML = 'loading wether data';
             getWeatherData(position.coords.latitude, position.coords.longitude)
+            .then(function() {
+                setTimeout(function () {
+                    getElement('loader').style.display = 'none'
+                }, 700);
+            })
         })
     } else {
         return alert('Could not get current location')
@@ -29,20 +36,12 @@ function getWeatherCoordinates() {
 
 
 function getWeatherData(latitude, longitude) {
-    loading = true;
-    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=96e1de85b9e42c8ad2124d596c1768d5`)
+    return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=96e1de85b9e42c8ad2124d596c1768d5`)
         .then(function(response) {
             return response.json()
         })
-        .then(function(data) {
-            console.log(data);
-            displayData(data)
-            loading = false;
-        })
-        .catch(function(error) {
-            loading = false;
-            console.error(error)
-        })
+        .then(displayData)
+        .catch(console.error)
 }
 
 function displayData(data) {
