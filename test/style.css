@@ -1,0 +1,23 @@
+.button {
+    padding: 10px 20px;
+    width: 100px;
+    background-color: aqua;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+}
+
+.text {
+    padding: 10px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .3s ease-out;
+    height: 0;
+}
+
+.text.active {
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+}
