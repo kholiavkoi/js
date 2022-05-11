@@ -20,13 +20,13 @@ let score_audio = new Audio();
 fly.src = 'sounds/fly.mp3';
 score_audio.src = 'sounds/score.mp3';
 
-let gap = 90;
+let gap = 120;
 
 //when click
 document.addEventListener('keydown', moveUp)
 
 function moveUp() {
-    yPos -= 25;
+    yPos -= 50;
     fly.play()
 }
 

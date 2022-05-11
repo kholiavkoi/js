@@ -19,7 +19,7 @@ var c = 10;
 
 
 // e = 20;
-// console.log(c);   //error
+// console.log(e);   //error
 // let e = 10;
 
 // const COLOR = '#fff';
