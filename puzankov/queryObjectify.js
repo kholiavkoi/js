@@ -1,25 +1,48 @@
-let a = '9412435552433155123321'
+const inData = 'user.name.firstname=Bob&user.name.lastname=Smith&user.favoritecolor=Light%20Blue&experiments.theme=dark'
 
 
-function luckyNum(arr) {
-    let objNums = Array.from(arr.toString()).reduce((obj, next) => {
-        if (!obj[next]) {
-            obj[next] = 1
-        } else {
-            obj[next]++
-        }
-        return obj
-    }, {})
+function queryObjectify(str) {
+    let res = {}
+    str = str.split('&')  // ['user.name.firstname=Bob', 'user.name.lastname=Smith' ...]
+    str = str.map(i => i.split('.')) // [['user', 'name', 'firstname=Bob'], ['user', 'name', 'lastname=Smith'] ...]
 
-    let result = 0
-    for (let key in objNums) {
-        if (objNums[key] === +key) {
-            result = Math.max(+key, result)
+    for (let i = 0; i < str.length; i++) {
+        let cur = res
+
+        for (let key = 0; key < str[i].length ; key++) {
+            let name = str[i][key]
+            if (key === str[i].length - 1) {
+                name = name.split('=')  // [firstname, Bob]
+                cur[name[0]] = decodeURIComponent(name[1])
+                break
+            }
+            if (cur[name]) {
+                cur = cur[name]
+            } else {
+                cur[name] = {}
+                cur = cur[name]
+            }
         }
     }
 
-    return result
+
+
+    // return res
 }
 
+console.log(queryObjectify(inData));
 
-console.log(luckyNum(a))
+
+
+// {
+//     'user': {
+//         'name': {
+//             'firstname': 'Bob',
+//             'lastname': 'Smith'
+//         },
+//         'favoritecolor': 'Light Blue'
+//     },
+//     'experiments': {
+//         'theme': 'dark'
+//     }
+// }
