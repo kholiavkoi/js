@@ -12,13 +12,13 @@
 //         return n + num
 //     }
 // }
-
+//
 // const addOne = createIncrementor(1);
 // const addTen = createIncrementor(10);
-
+//
 // console.log(addOne(10));
 // console.log(addOne(41));
-
+//
 // console.log(addTen(10));
 // console.log(addTen(41));
 
@@ -27,10 +27,10 @@
 //         return `https://${url}.${domain}`
 //     }
 // }
-
+//
 // const comUrl = urlGenerator('com');
 // const ruUrl = urlGenerator('ru');
-
+//
 // console.log(comUrl('google'));
 // console.log(comUrl('netflix'));
 // console.log(ruUrl('vkontakte'));

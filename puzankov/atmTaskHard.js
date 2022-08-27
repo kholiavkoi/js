@@ -1,30 +1,41 @@
-// REQUIREMENTS
-// 1. Always deliver the lowest number of possible notes
-// 2. It's possible to get the amount requested with available notes
-// 3. The client balance is infinite
-// 4. Amount of notes is infinite
-// 5. Available notes 100, 50, 20, 10
+let limits = {
+    30: 6,
+    50: 100,
+    100: 5,
+    500: 2,
+    1000: 5
+}
 
+function iWantGet(amountRequired, limits) {
 
-function iWantToGet(amountRequired) {
-    const availableNotes = [100, 50, 20, 10]
-    let res = []
+    let nominals = Object.keys(limits).map(Number).sort((a,b) => b - a)
 
-    if (amountRequired > 0) {
-        for (let i = 0; i < availableNotes.length; i++) {
-            let note = availableNotes[i]
+    return collect(amountRequired, nominals)
+}
 
-            while (amountRequired - note >= 0) {
-                amountRequired -= note
-                res.push(note)
-            }
+function collect(amount, nominals) {
+    if (amount === 0) return {}
+    if (!nominals.length) return
+
+    let currentNominal = nominals[0]
+    let availableNotes = limits[currentNominal]
+    let notesNeeded = Math.floor(amount / currentNominal)
+    let numberOfNotes = Math.min(availableNotes, notesNeeded)
+
+    for ( let i = numberOfNotes; i >= 0; i--) {
+        let result = collect(amount - i * currentNominal, nominals.slice(1))
+
+        if (result) {
+            return i ? {[currentNominal]: i, ...result} : result
         }
-    } else {
-        console.log('Please enter new amount')
     }
 
-    return res
 }
 
 
-console.log(iWantToGet(0))
+
+console.log(iWantGet(230, limits)) // {30: 1, 100: 2}
+// console.log(iWantGet(1000, limits)) // {1000: 1}
+console.log(iWantGet(120, limits)) // {30: 4}
+// console.log(iWantGet(275, limits))
+// console.log(iWantGet(50000, limits))

@@ -27,7 +27,7 @@ function queryObjectify(str) {
 
 
 
-    // return res
+    return res
 }
 
 console.log(queryObjectify(inData));
