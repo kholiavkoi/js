@@ -1,0 +1,30 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.box {
+    max-width: 1200px;
+    margin: 0 auto;
+
+}
+
+.row {
+    display: flex;
+    margin: 0 -10px;
+    flex-wrap: wrap;
+}
+
+.column {
+    flex: 0 1 calc(33.333% - 20px);
+    /*width: 33.333%;*/
+    padding: 0 10px;
+    margin-bottom: 10px;
+}
+
+.item {
+    padding: 10px;
+    background: #3c763d;
+    color: #fff;
+    border-radius: 5px;
+}

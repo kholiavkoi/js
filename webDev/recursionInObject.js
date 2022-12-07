@@ -43,5 +43,3 @@ function userParentRecursion(obj) {
 for (let key in users) {
     userParentRecursion(users[key])
 }
-
-console.log(userParentRecursion(users));
