@@ -1,12 +1,13 @@
-function isPangram(num) {
-    const local = num + num
-    return {
-        getLocal() {
-            return local
-        }
+const tree = [
+    {
+        v: 5,
+        c: [
+            {
+                v: 10,
+                c: [
+
+                ]
+            }
+        ]
     }
-}
-
-// console.log(isPangram(10)())
-
-console.log(isPangram(10).getLocal())
+]
